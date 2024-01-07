@@ -12,18 +12,18 @@ from few_shots import few_shots
 
 import os
 from dotenv import load_dotenv
-load_dotenv()  # take environment variables from .env (especially openai api key)
+load_dotenv()
 
 
 def get_few_shot_db_chain():
     db_user = "root"
-    db_password = "dipankar1993"
+    db_password = "Your password"
     db_host = "localhost"
     db_name = "Aura_Merchandise"
 
     db = SQLDatabase.from_uri(f"mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_name}",
                               sample_rows_in_table_info=3)
-    api_key= 'AIzaSyC9p-BiKs2a3F6JczBFqoNJ8qH7cSvB9Lc'
+    api_key= 'Your api Key'
     llm = GooglePalm(google_api_key= api_key, temperature = 0.2)
 
     embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
